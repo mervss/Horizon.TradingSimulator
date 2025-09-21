@@ -1,0 +1,7 @@
+﻿{
+    "name": "JsonFormatter",
+    "version": "1.0.0",
+    "description": "JSON formatter",
+    "format": "json",
+    "entryType": "JsonFormatter"
+}

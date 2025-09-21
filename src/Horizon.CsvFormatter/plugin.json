@@ -1,0 +1,7 @@
+{
+    "name": "CsvFormatter",
+    "version": "1.0.0",
+    "description": "CSV formatter",
+    "format": "csv",
+    "entryType": "CsvFormatter"
+}

@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <Content Include="plugin.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Horizon.PluginAbstractions\Horizon.PluginAbstractions.csproj" />
+  </ItemGroup>
+	<Target Name="CopyPluginToHost" AfterTargets="Build">
+		<PropertyGroup>
+			<HostPluginsDir>$(SolutionDir)src\Horizon.Host\plugins\</HostPluginsDir>
+		</PropertyGroup>
+		<MakeDir Directories="$(HostPluginsDir)" />
+		<Copy SourceFiles="$(TargetDir)$(TargetFileName)" DestinationFolder="$(HostPluginsDir)" />
+		<Copy SourceFiles="$(TargetDir)plugin.json" DestinationFolder="$(HostPluginsDir)" SkipUnchangedFiles="true" />
+	</Target>
+</Project>
